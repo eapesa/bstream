@@ -646,7 +646,6 @@ $(document).ready(function () {
     var socket = io.connect('http://localhost:8080');
     socket.on('logs', function (items) {
         var data = JSON.parse(items.data);
-        console.log(data);
         socket.emit('response', {
             response: 'received'
         });
@@ -663,7 +662,6 @@ $(document).ready(function () {
 
         if (chatroom !== undefined && chatroom === 'muc') {
             var room = data.to.split('@')[0];
-            console.log('GROUP: ' + chatroom);
             $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' + 
             ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
             from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/chatroom_' + 
