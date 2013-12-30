@@ -646,9 +646,6 @@ $(document).ready(function () {
     var socket = io.connect('http://localhost:8080');
     socket.on('logs', function (items) {
         var data = JSON.parse(items.data);
-        socket.emit('response', {
-            response: 'received'
-        });
 
         if ($(".parent").children().size() == 5) {
             $(".parent .container").last().remove();
@@ -658,24 +655,26 @@ $(document).ready(function () {
         var from = data.from.split('@')[0];
         var ran = Math.floor((Math.random() * 8) + 1);
         
-        var chatroom = data.to.split('@')[1].split('.')[0];
-
-        if (chatroom !== undefined && chatroom === 'muc') {
+        var type = data.type;
+        
+        if (type !== undefined && type === 'groupchat') {
             var room = data.to.split('@')[0];
             $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' + 
             ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
             from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/chatroom_' + 
             room + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
-        } else if (chatroom !== undefined && chatroom === 'vgc') {
+        } else if (type !== undefined && type === 'vgc') {
             $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' + 
             ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
             from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/group_' + 
             ran + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
-        } else {
+        } else if (type !== undefined && type === 'chat') {
             $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' +
                 ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' +
                 from + '</strong></i> <i> says <p class="message">' +
                 msg + '</p></div></div></span>');
+        } else {
+            socket.emit('response', { response : 'undefined type'});
         }
     });
 });

@@ -16,12 +16,11 @@ var tail = new Tail(nconf.get('logs:path'));
 
 io.sockets.on('connection', function (socket) {
     tail.on('line', function(logs) {
-        console.log(logs);
         socket.emit('logs', { data : logs });
-    });
-
-    socket.on('response', function (data) {
-        console.log('CLIENT RESPONSE: ' + data);
+        
+        socket.on('response', function (data) {
+            console.log('CLIENT RESPONSE: ' + JSON.stringify(data));
+        });
     });
 });
 
