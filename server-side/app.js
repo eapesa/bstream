@@ -25,14 +25,15 @@ io.sockets.on('connection', function (socket) {
     });
 });
 
+var dir = path.join(__dirname, '../');
 
 app.configure(function(){
-    var dir = path.join(__dirname, '../');
     app.use(express.static(dir + '/'));
 });
 
 app.get('/', function(req, res) {
-    res.sendfile('/Users/eapesa/Desktop/Voyager_Git/bstream/socket.io/client.html');
+    //res.sendfile('/Users/eapesa/Desktop/Voyager_Git/bstream/socket.io/client.html');
+    res.sendfile(dir + 'client-side/index.html');
 });
 
 server.listen(nconf.get('app:port'), nconf.get('app:host'), function() {

@@ -642,6 +642,7 @@ var EMOJI = {
 var PATTERN = /(\\u[a-f0-9]{4})+?/ig;
         
 $(document).ready(function(){
+    /*
     $.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
     setInterval(function(){
         $.getJSON("http://dev-im.smartnet.ph/get_stream",function(data){
@@ -675,6 +676,35 @@ $(document).ready(function(){
             });                                                             
         });
     },5000);
+     */
+    
+    var socket = io.connect('http://localhost:8080');
+    socket.on('logs', function (items) {
+        var data = JSON.parse(items.data);
+        console.log(data);
+        socket.emit('response', { response: 'received' });
+        
+        if ($(".parent").children().size() == 3){
+            $(".parent .container").last().remove();
+        }
+        //var chatroom = data.from.split("@")[0];
+        var msg = findEmoticons(data.body);
+        var from = data.from.split('@')[0];
+        console.log('MSG: ' + msg + ' FROM: ' + from);
+        //var img_url = field.image;
+        var ran = Math.floor((Math.random()*8)+1);
+        
+        //Add to stream
+        //if (img_url !== undefined){ 
+            //Append image
+            $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_'+ 
+                ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>'+ 
+                from + '</strong></i> <i> says <p class="message">' + 
+                msg + '</p></div></div></span>');  
+        //} else {
+        //    $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="./artifacts/chick_'+ ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>'+ nick + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="./artifacts/chatroom_'+ chatroom + '.png"></i><p class="message">' + msg + '</p></div></div></span>');  
+        //}
+    });
 });
 
 function findEmoticons(msg) {
@@ -687,7 +717,7 @@ function findEmoticons(msg) {
         var uni = code;
         code = getCharAsDecimalUTF8(uni);
         if(EMOJI[code])
-            msg = msg.replace(uni, '<img src="'+EMOJI[code]+'"/>');
+            msg = msg.replace(uni, '<img src="/client-side/'+EMOJI[code]+'"/>');
     });
     return unescape(msg);
 }

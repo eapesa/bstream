@@ -4,7 +4,7 @@
         "port" : 8080
     },
     "logs" : {
-        "path" : "../test.log",
+        "path" : "./test.log",
         "path1" : "/log/babble.log"
     }
 }
