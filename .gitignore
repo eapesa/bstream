@@ -2,3 +2,5 @@ node_modules
 test.log
 
 client-side/index.html
+
+*.log
