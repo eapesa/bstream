@@ -647,7 +647,7 @@ $(document).ready(function () {
     socket.on('logs', function (items) {
         var data = JSON.parse(items.data);
 
-        if ($(".parent").children().size() == 5) {
+        if ($(".parent").children().size() === 5) {
             $(".parent .container").last().remove();
         }
         
@@ -659,15 +659,15 @@ $(document).ready(function () {
         
         if (type !== undefined && type === 'groupchat') {
             var room = data.to.split('@')[0];
-            $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' + 
-            ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
-            from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/chatroom_' + 
-            room + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
+            $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/' + 
+                'intro_group.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
+                from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/chatroom_' + 
+                room + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
         } else if (type !== undefined && type === 'vgc') {
-            $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' + 
-            ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
-            from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/group_' + 
-            ran + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
+            $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/' + 
+                'intro_group.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' + 
+                from + '</strong></i> <i> says <img class="chatroom pull-right" id="chatroom" src="/client-side/artifacts/group_' + 
+                ran + '.png"></i><p class="message">' + msg + '</p></div></div></span>');
         } else if (type !== undefined && type === 'chat') {
             $(".parent").prepend('<span class="container"><div><div class = "span1"><br><img class="profpic" src="/client-side/artifacts/chick_' +
                 ran + '.png"><br></div><div class = "span11 example-twitter"><i class="nickname"><strong>' +
