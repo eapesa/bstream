@@ -1,0 +1,13 @@
+{
+    "app" : {
+        "host" : "0.0.0.0",
+        "port" : 8080
+    },
+    "path" : {
+        "logfile" : "/log/babble.log",
+        "url": "http://54.254.98.53:8080/"
+    },
+    "miscs" : {
+        "max_entries" : 20
+    }
+}

@@ -5,6 +5,8 @@
 	    "express": "3.x",
         "nconf": "*",
         "tail": "*",
-        "socket.io": "*"
+        "socket.io": "*",
+        "consolidate": "*",
+        "swig" : "*"
     }
 }

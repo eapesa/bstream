@@ -643,11 +643,10 @@ var EMOJI = {
 var PATTERN = /(\\u[a-f0-9]{4})+?/ig;
 
 $(document).ready(function () {
-    var socket = io.connect('http://localhost:8080');
+    var socket = io.connect(url);
     socket.on('logs', function (items) {
         var data = JSON.parse(items.data);
-
-        if ($(".parent").children().size() === 5) {
+        if ($(".parent").children().size() === max_entries) {
             $(".parent .container").last().remove();
         }
         
