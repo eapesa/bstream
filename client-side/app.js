@@ -6,12 +6,13 @@ var path = require('path');
 
 var app = express();
 var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+//var io = require('socket.io').listen(server);
 
 nconf.use('file', {
     file: '../config.json'
 });
 
+/*
 var Tail = require('tail').Tail;
 var tail = new Tail(nconf.get('path:logfile'));
 
@@ -24,8 +25,8 @@ io.sockets.on('connection', function (socket) {
         });
     });
 });
+ */
 
-/*
 var dir = path.join(__dirname, '../');
 
 app.configure(function(){
@@ -42,8 +43,7 @@ app.get('/', function (req, res) {
 		res.end(html);
     });
 })
- */
 
-server.listen(nconf.get('app:port1'), nconf.get('app:host'), function() {
-    console.log('Server listening on ' + nconf.get('app:host') + ':' + nconf.get('app:port1'));
+server.listen(nconf.get('app:port2'), nconf.get('app:host'), function() {
+    console.log('Server listening on ' + nconf.get('app:host') + ':' + nconf.get('app:port2'));
 });
