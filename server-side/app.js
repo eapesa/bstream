@@ -16,12 +16,28 @@ nconf.use('file', {
 var Tail = require('tail').Tail;
 var tail = new Tail(nconf.get('path:logfile'));
 
+filter_message = function(msg) {
+    var all_badwords = nconf.get('bad_words');
+    
+    for (var i in all_badwords) {
+        var bw = all_badwords[i];
+        var bw_length = bw.length;
+        var filter = Array(bw_length).join('*');
+        var bad_word = new RegExp(bw, 'g');
+
+        msg = msg.replace(bad_word, bw.substring(0, 1) + filter);
+    }
+    
+    return msg;
+}
+
 io.sockets.on('connection', function (socket) {
     tail.on('line', function(logs) {
         var json_logs = JSON.parse(logs);
         var dom = json_logs.from.split('@');
         var hfrom = crypto.createHash('md5').update(dom[0]).digest('hex');
         json_logs.from = 'BABBLER_' + hfrom.substr(hfrom.length - 5) + '@' + dom[1];
+        json_logs.body = filter_message(json_logs.body);
         
         socket.emit('logs', { data : JSON.stringify(json_logs) });
         

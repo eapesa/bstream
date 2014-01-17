@@ -5,3 +5,5 @@ test.log
 config.json
 
 config.json
+
+*.pem
