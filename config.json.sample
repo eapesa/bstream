@@ -10,5 +10,7 @@
     },
     "miscs" : {
         "max_entries" : 20
-    }
+    },
+    "bad_words" : ["shit", "fuck", "bitch", "idiot", "whore", "slut", "ass", "butt", 
+        "gago", "gaga", "tanga", "puta", "tang", "punyeta", "tarantado", "ulol", "ulul", "walanghiya"]
 }
