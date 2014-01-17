@@ -3,6 +3,7 @@ var cons = require('consolidate');
 var http = require('http');
 var nconf = require('nconf');
 var path = require('path');
+var crypto = require('crypto');
 
 var app = express();
 var server = http.createServer(app);
@@ -17,7 +18,12 @@ var tail = new Tail(nconf.get('path:logfile'));
 
 io.sockets.on('connection', function (socket) {
     tail.on('line', function(logs) {
-        socket.emit('logs', { data : logs });
+        var json_logs = JSON.parse(logs);
+        var dom = json_logs.from.split('@');
+        var hfrom = crypto.createHash('md5').update(dom[0]).digest('hex');
+        json_logs.from = 'BABBLER_' + hfrom.substr(hfrom.length - 5) + '@' + dom[1];
+        
+        socket.emit('logs', { data : JSON.stringify(json_logs) });
         
         socket.on('response', function (data) {
             console.log('CLIENT RESPONSE: ' + JSON.stringify(data));
