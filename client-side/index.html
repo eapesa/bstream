@@ -2,28 +2,31 @@
 <html>
 	<head>
 		<title>Babble Stream</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
-		<link href="/client-side/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Raleway'>
+		<link href='/client-side/css/bootstrap.min.css' rel='stylesheet' media='screen'/>
 		<style> body { 
                     font-family: 'Raleway', sans-serif; 
                     padding-top: 90px; 
-                    background-image: url("/client-side/artifacts/main/bstream_wp2.png");
+                    background-image: url('/client-side/artifacts/main/bstream_wp2.png');
                     background-size: cover;
                     background-repeat:no-repeat; 
                     background-position:center; 
-                    background-attachment:fixed; } 
+                    background-attachment:fixed;
+                } 
 				.image { max-width: 250px; max-height: 315px; }
 				.thumbnail { border: 0 none; box-shadow: none; }
-				.dp { width: 20%; height: 20%; }
-                #txt_banner { margin-bottom: 30px;}
+                .navbar { background:transparent; opacity:0.4; filter:alpha(opacity=40); }
+				.dp { width: 40%; height: 40%; }
+                .img_logo { width: 20%; height: 20%; }
+                .chatroom { width: 50px; height: 50px;}
 				.profpic { width: 50px; height: 50px; }
 				.brand { font-size: 50px;}
 				.log { font-size: 30px; margin-top: 3px; margin-left:-20px}
 				.masthead h1 { font-size: 80px; line-height: 1; letter-spacing: -2px; color:#fff;}
 				.masthead p { font-size: 100px; line-height: 1; letter-spacing: -2px; color:#FBEC5D; font-weight: bold;}
 				.masthead { padding: 50px 50px 50px 50px; margin-bottom: 0; color: #fff; }
-				.jumbotron { background-image: url("/client-side/artifacts/main/bstream_wp2.png"); color: #fff; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);}
+				.jumbotron { background-image: url('/client-side/artifacts/main/bstream_wp2.png'); color: #fff; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);}
                 .example-twitter {
                     position:relative;
                     padding:15px;
@@ -45,7 +48,7 @@
                 .example-twitter p {font-size:28px; line-height:1.25em;}
 
                 .example-twitter:after {
-                    content:"";
+                    content:'';
                     position:absolute;
                     top:15px;
                     left:-30px;
@@ -70,42 +73,46 @@
 		</style>
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<button type="button" class="btn btn-navbar"
-						data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+		<div class='navbar navbar-inverse navbar-fixed-top'>
+			<div class='navbar-inner'>
+				<div class='container'>
+					<button type='button' class='btn btn-navbar'
+						data-toggle='collapse' data-target='.nav-collapse'>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
 					</button>
-					<a class="brand"><img class="dp" src="/client-side/artifacts/main/logo_babble.png">
-                         <text id="txt_banner">Stream by Voyager Innovations, Inc</text></a>
-					<span id="dp_txt" class="tagline pull-right">Keep Talking</span>
+					<a class='brand' href='http://www.babbleim.com' target='_blank'>
+                        <img class='dp' src='/client-side/artifacts/main/bstream_logo.png' />
+                    </a>
+					<span class='tagline pull-right'>
+                        <text class='pull-right'>   Keep Talking</text>
+                        <img class='img_logo pull-right' src='/client-side/artifacts/main/settings_main.png' />
+                    </span>
 				</div>
 			</div>
 		</div>
 		<div>
-            <div id="view-modal" class="modal hide fade">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div class="jumbotron masthead">
-                        <div id="visitName" class="con">
+            <div id='view-modal' class='modal hide fade'>
+                <div class='modal-body'>
+                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                    <div class='jumbotron masthead'>
+                        <div id='visitName' class='con'>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-		<div class=" container parent">
+		<div class=' container parent'>
 		</div>
-		<script src="/client-side/jquery.js"></script>
-		<script src="/client-side/js/bootstrap.min.js"></script>
-		<script src="/client-side/js/jquery.raty.min.js"></script>
-        <script type="text/javascript" src="/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js"></script>
+		<script src='/client-side/jquery.js'></script>
+		<script src='/client-side/js/bootstrap.min.js'></script>
+		<script src='/client-side/js/jquery.raty.min.js'></script>
+        <script type='text/javascript' src='/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js'></script>
         <script>
         var max_entries = {{max_entries}};
         var url = '{{url}}';
         </script>
-		<script type="text/javascript" src="/client-side/functions.js"></script>
+		<script type='text/javascript' src='/client-side/functions.js'></script>
 	</body>
 </html>
