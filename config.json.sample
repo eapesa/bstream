@@ -2,15 +2,15 @@
     "app" : {
         "host" : "0.0.0.0",
         "port1" : 8080,
-        "port2" : 8081
+        "port2" : 8000
     },
     "path" : {
         "logfile" : "/log/babble.log",
         "url": "http://54.254.98.53:8080/"
     },
     "miscs" : {
-        "max_entries" : 20
+        "max_entries" : 5
     },
-    "bad_words" : ["shit", "fuck", "bitch", "idiot", "whore", "slut", "ass", "butt", 
+    "bad_words" : ["shit", "fuck", "bitch", "idiot", "whore", "slut", "ass", "butt", "pussy",
         "gago", "gaga", "tanga", "puta", "tang", "punyeta", "tarantado", "ulol", "ulul", "walanghiya"]
 }

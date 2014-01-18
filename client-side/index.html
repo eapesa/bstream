@@ -5,18 +5,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
 		<link href="/client-side/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-		<style> body { font-family: 'Raleway', sans-serif; padding-top: 90px; background-image: url("http://1.bp.blogspot.com/-wynSnYQEIPs/UYxWFdz9aDI/AAAAAAAABU0/PKR39vraoYE/s1600/shynD+Stripe+Pattern+Wallpaper+-+Blue+2.jpg"); background-repeat:no-repeat; background-position:center;} 
+		<style> body { 
+                    font-family: 'Raleway', sans-serif; 
+                    padding-top: 90px; 
+                    background-image: url("/client-side/artifacts/main/bstream_wp2.png");
+                    background-size: cover;
+                    background-repeat:no-repeat; 
+                    background-position:center; 
+                    background-attachment:fixed; } 
 				.image { max-width: 250px; max-height: 315px; }
 				.thumbnail { border: 0 none; box-shadow: none; }
-				.dp {width: 12%; height: 12%;}
-				.chatroom {width: 50px; height: 50px;}
-				.profpic {width: 50px; height: 50px; border: 3px solid white; box-shadow: 0 0 5px #333;}
-				.brand {font-size: 50px;}
+				.dp { width: 20%; height: 20%; }
+                #txt_banner { margin-bottom: 30px;}
+				.profpic { width: 50px; height: 50px; }
+				.brand { font-size: 50px;}
 				.log { font-size: 30px; margin-top: 3px; margin-left:-20px}
 				.masthead h1 { font-size: 80px; line-height: 1; letter-spacing: -2px; color:#fff;}
 				.masthead p { font-size: 100px; line-height: 1; letter-spacing: -2px; color:#FBEC5D; font-weight: bold;}
 				.masthead { padding: 50px 50px 50px 50px; margin-bottom: 0; color: #fff; }
-				.jumbotron { background-image: url(http://1.bp.blogspot.com/-wynSnYQEIPs/UYxWFdz9aDI/AAAAAAAABU0/PKR39vraoYE/s1600/shynD+Stripe+Pattern+Wallpaper+-+Blue+2.jpg); color: #fff; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);}
+				.jumbotron { background-image: url("/client-side/artifacts/main/bstream_wp2.png"); color: #fff; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);}
                 .example-twitter {
                     position:relative;
                     padding:15px;
@@ -72,9 +79,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand"><img class="dp" src="/client-side/artifacts/miscs/logo_babble.png">
-                         Stream by Voyager Innovations, Inc</a>
-					<span class="tagline pull-right">Keep Talking</span>
+					<a class="brand"><img class="dp" src="/client-side/artifacts/main/logo_babble.png">
+                         <text id="txt_banner">Stream by Voyager Innovations, Inc</text></a>
+					<span id="dp_txt" class="tagline pull-right">Keep Talking</span>
 				</div>
 			</div>
 		</div>
