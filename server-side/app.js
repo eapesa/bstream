@@ -23,9 +23,9 @@ filter_message = function(msg) {
         var bw = all_badwords[i];
         var bw_length = bw.length;
         var filter = Array(bw_length).join('*');
-        var bad_word = new RegExp(bw, 'g');
+        var bad_word = new RegExp(bw, 'gi');
 
-        msg = msg.replace(bad_word, bw.substring(0, 1) + filter);
+        msg = msg.replace(bad_word, filter + bw.substring(bw_length - 1));
     }
     
     return msg;
